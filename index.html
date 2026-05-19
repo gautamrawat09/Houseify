@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Housify – Find Your Perfect Rental Home</title>
+  <meta name="description" content="Housify helps you find the perfect rental home. Filter by guests, duration, location and more." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+  <!-- ============ TOAST ============ -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="nav-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 9.5L12 3l9 6.5V21H15v-6H9v6H3V9.5z"/>
+        </svg>
+      </div>
+      <span class="logo-text">House<span>ify</span></span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#listings">Listings</a></li>
+      <li><a href="#how-it-works">How it Works</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="btn-outline">Sign In</button>
+      <button class="btn-primary">List a Property</button>
+    </div>
+
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ============ MOBILE MENU ============ -->
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="#listings">Listings</a></li>
+      <li><a href="#how-it-works">How it Works</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="mobile-menu-actions">
+      <button class="btn-outline">Sign In</button>
+      <button class="btn-primary">List a Property</button>
+    </div>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-circles"></div>
+
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          #1 Rental Platform in India
+        </div>
+
+        <h1 class="hero-title">
+          Find Your<br/>
+          <span class="highlight">Dream Home</span><br/>
+          to Rent Today
+        </h1>
+
+        <p class="hero-subtitle">
+          Discover thousands of verified rental properties across India. Filter by guests, duration, budget and lifestyle — move in with confidence.
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-num" data-count="12000" data-suffix="+">0+</span>
+            <span class="stat-label">Active Listings</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-count="8500" data-suffix="+">0+</span>
+            <span class="stat-label">Happy Tenants</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-count="120" data-suffix="+">0+</span>
+            <span class="stat-label">Cities Covered</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEARCH BOX -->
+      <div class="search-box">
+        <h3>Search Rental Properties</h3>
+
+        <div class="search-tabs">
+          <button class="search-tab active">Rent</button>
+          <button class="search-tab">Buy</button>
+          <button class="search-tab">PG / Hostel</button>
+        </div>
+
+        <div class="form-group">
+          <label>Location / City</label>
+          <input type="text" id="location-input" placeholder="e.g. Dehradun, Delhi, Mumbai…" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Property Type</label>
+            <select>
+              <option>All Types</option>
+              <option>Apartment</option>
+              <option>Villa / Bungalow</option>
+              <option>Studio</option>
+              <option>Row House</option>
+              <option>Penthouse</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>BHK / Bedrooms</label>
+            <select>
+              <option>Any</option>
+              <option>1 BHK</option>
+              <option>2 BHK</option>
+              <option>3 BHK</option>
+              <option>4+ BHK</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>👥 No. of People</label>
+            <select>
+              <option>Any</option>
+              <option>1 Person</option>
+              <option>2 People</option>
+              <option>3–4 People</option>
+              <option>5–6 People</option>
+              <option>7+ People</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>⏱ Rent Duration</label>
+            <select>
+              <option>Any Duration</option>
+              <option>Daily</option>
+              <option>Weekly</option>
+              <option>Monthly</option>
+              <option>3 Months</option>
+              <option>6 Months</option>
+              <option>1 Year+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Min Budget (₹/mo)</label>
+            <input type="number" placeholder="e.g. 5000" min="0" />
+          </div>
+          <div class="form-group">
+            <label>Max Budget (₹/mo)</label>
+            <input type="number" placeholder="e.g. 30000" min="0" />
+          </div>
+        </div>
+
+        <button class="search-btn">
+          <svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
+          Search Properties
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <div class="how-it-works" id="how-it-works">
+    <div class="section-header">
+      <span class="section-eyebrow">Simple Process</span>
+      <h2 class="section-title">Rent a Home in 3 Easy Steps</h2>
+      <p class="section-subtitle">From search to move-in, Housify makes renting stress-free and transparent.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3 class="step-title">Search & Filter</h3>
+        <p class="step-desc">Use our powerful filters — location, guests, duration, budget and amenities — to narrow down the perfect place for you.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3 class="step-title">Visit & Verify</h3>
+        <p class="step-desc">Book a free site visit or take a virtual tour. Every listing is verified by our team for accuracy and quality.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3 class="step-title">Move In!</h3>
+        <p class="step-desc">Sign your digital agreement, pay securely, and get your keys. Hassle-free from start to finish.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PROPERTY LISTINGS ============ -->
+  <section class="properties-section" id="listings">
+    <div class="section-header" style="text-align:left;">
+      <span class="section-eyebrow">Browse Listings</span>
+      <h2 class="section-title">Featured Rental Properties</h2>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="apartment">Apartment</button>
+      <button class="filter-btn" data-filter="villa">Villa</button>
+      <button class="filter-btn" data-filter="studio">Studio</button>
+      <button class="filter-btn" data-filter="pg">PG / Hostel</button>
+    </div>
+
+    <div class="properties-grid">
+
+      <!-- CARD 1 -->
+      <div class="property-card" data-type="apartment"
+           data-beds="3" data-baths="2" data-area="1450" data-people="4" data-duration="Monthly">
+        <div class="card-image">
+          <img class="card-img" src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80" alt="Modern Apartment" loading="lazy" />
+          <div class="card-badge badge-new">New</div>
+          <button class="card-fav" aria-label="Favourite">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+        <div class="card-body">
+          <div class="card-price">₹18,500 <span>/month</span></div>
+          <div class="card-title">Spacious 3 BHK Apartment</div>
+          <div class="card-location">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Rajpur Road, Dehradun
+          </div>
+          <div class="card-meta">
+            <div class="meta-item" data-beds="3">
+              <svg viewBox="0 0 24 24"><path d="M7 14c-1.66 0-3-1.34-3-3 0-1.31.84-2.41 2-2.83V6c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2v2.17c1.16.42 2 1.52 2 2.83 0 1.66-1.34 3-3 3H7zm0 2h10v2H7v-2z"/></svg>
+              3 Beds
+            </div>
+            <div class="meta-item" data-baths="2">
+              <svg viewBox="0 0 24 24"><path d="M5 13h14v2H5zm0 4h14v2H5zm10-6v-3a5 5 0 0 0-10 0v3H3v-3C3 3.6 7.03 0 12 0s9 3.6 9 8v3h-2z"/></svg>
+              2 Baths
+            </div>
+            <div class="meta-item" data-area="1450">
+              <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14z"/></svg>
+              1450 sqft
+            </div>
+            <div class="meta-item" data-people="4">
+              <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+              4 People
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="property-card" data-type="villa"
+           data-beds="4" data-baths="3" data-area="2800" data-people="6" data-duration="6 Months+">
+        <div class="card-image">
+          <img class="card-img" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Villa" loading="lazy" />
+          <div class="card-badge badge-available">Available</div>
+          <button class="card-fav" aria-label="Favourite">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+        <div class="card-body">
+          <div class="card-price">₹42,000 <span>/month</span></div>
+          <div class="card-title">Luxury Villa with Garden</div>
+          <div class="card-location">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Vasant Vihar, Delhi
+          </div>
+          <div class="card-meta">
+            <div class="meta-item" data-beds="4">
+              <svg viewBox="0 0 24 24"><path d="M7 14c-1.66 0-3-1.34-3-3 0-1.31.84-2.41 2-2.83V6c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2v2.17c1.16.42 2 1.52 2 2.83 0 1.66-1.34 3-3 3H7zm0 2h10v2H7v-2z"/></svg>
+              4 Beds
+            </div>
+            <div class="meta-item" data-baths="3">
+              <svg viewBox="0 0 24 24"><path d="M5 13h14v2H5zm0 4h14v2H5zm10-6v-3a5 5 0 0 0-10 0v3H3v-3C3 3.6 7.03 0 12 0s9 3.6 9 8v3h-2z"/></svg>
+              3 Baths
+            </div>
+            <div class="meta-item" data-area="2800">
+              <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14z"/></svg>
+              2800 sqft
+            </div>
+            <div class="meta-item" data-people="6">
+              <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+              6 People
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="property-card" data-type="studio"
+           data-beds="1" data-baths="1" data-area="520" data-people="1" data-duration="Monthly">
+        <div class="card-image">
+          <img class="card-img" src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&q=80" alt="Studio Apartment" loading="lazy" />
+          <div class="card-badge badge-new">New</div>
+          <button class="card-fav" aria-label="Favourite">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+        <div class="card-body">
+          <div class="card-price">₹9,000 <span>/month</span></div>
+          <div class="card-title">Cozy Studio Near IT Park</div>
+          <div class="card-location">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Koramangala, Bengaluru
+          </div>
+          <div class="card-meta">
+            <div class="meta-item" data-beds="1">
+              <svg viewBox="0 0 24 24"><path d="M7 14c-1.66 0-3-1.34-3-3 0-1.31.84-2.41 2-2.83V6c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2v2.17c1.16.42 2 1.52 2 2.83 0 1.66-1.34 3-3 3H7zm0 2h10v2H7v-2z"/></svg>
+              1 Bed
+            </div>
+            <div class="meta-item" data-baths="1">
+              <svg viewBox="0 0 24 24"><path d="M5 13h14v2H5zm0 4h14v2H5zm10-6v-3a5 5 0 0 0-10 0v3H3v-3C3 3.6 7.03 0 12 0s9 3.6 9 8v3h-2z"/></svg>
+              1 Bath
+            </div>
+            <div class="meta-item" data-area="520">
+              <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14z"/></svg>
+              520 sqft
+            </div>
+            <div class="meta-item" data-people="1">
+              <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              1 Person
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="property-card" data-type="apartment"
+           data-beds="2" data-baths="2" data-area="1100" data-people="3" data-duration="Monthly">
+        <div class="card-image">
+          <img class="card-img" src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80" alt="2 BHK" loading="lazy" />
+          <div class="card-badge badge-available">Available</div>
+          <button class="card-fav" aria-label="Favourite">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+        <div class="card-body">
+          <div class="card-price">₹14,500 <span>/month</span></div>
+          <div class="card-title">2 BHK with City View</div>
+          <div class="card-location">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Banjara Hills, Hyderabad
+          </div>
+          <div class="card-meta">
+            <div class="meta-item" data-beds="2"><svg viewBox="0 0 24 24"><path d="M7 14c-1.66 0-3-1.34-3-3 0-1.31.84-2.41 2-2.83V6c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2v2.17c1.16.42 2 1.52 2 2.83 0 1.66-1.34 3-3 3H7zm0 2h10v2H7v-2z"/></svg>2 Beds</div>
+            <div class="meta-item" data-baths="2"><svg viewBox="0 0 24 24"><path d="M5 13h14v2H5zm0 4h14v2H5zm10-6v-3a5 5 0 0 0-10 0v3H3v-3C3 3.6 7.03 0 12 0s9 3.6 9 8v3h-2z"/></svg>2 Baths</div>
+            <div class="meta-item" data-area="1100"><svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14z"/></svg>1100 sqft</div>
+            <div class="meta-item" data-people="3"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>3 People</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="property-card" data-type="pg"
+           data-beds="1" data-baths="1" data-area="200" data-people="1" data-duration="Monthly">
+        <div class="card-image">
+          <img class="card-img" src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600&q=80" alt="PG" loading="lazy" />
+          <div class="card-badge badge-new">New</div>
+          <button class="card-fav" aria-label="Favourite">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+        <div class="card-body">
+          <div class="card-price">₹6,500 <span>/month</span></div>
+          <div class="card-title">Fully Furnished PG Room</div>
+          <div class="card-location">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Andheri West, Mumbai
+          </div>
+          <div class="card-meta">
+            <div class="meta-item" data-beds="1"><svg viewBox="0 0 24 24"><path d="M7 14c-1.66 0-3-1.34-3-3 0-1.31.84-2.41 2-2.83V6c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2v2.17c1.16.42 2 1.52 2 2.83 0 1.66-1.34 3-3 3H7zm0 2h10v2H7v-2z"/></svg>1 Room</div>
+            <div class="meta-item" data-baths="1"><svg viewBox="0 0 24 24"><path d="M5 13h14v2H5zm0 4h14v2H5zm10-6v-3a5 5 0 0 0-10 0v3H3v-3C3 3.6 7.03 0 12 0s9 3.6 9 8v3h-2z"/></svg>Shared Bath</div>
+            <div class="meta-item" data-area="200"><svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14z"/></svg>200 sqft</div>
+            <div class="meta-item" data-people="1"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>1 Person</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="property-card" data-type="villa"
+           data-beds="5" data-baths="4" data-area="3500" data-people="7" data-duration="1 Year+">
+        <div class="card-image">
+          <img class="card-img" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Bungalow" loading="lazy" />
+          <div class="card-badge badge-available">Available</div>
+          <button class="card-fav" aria-label="Favourite">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+        <div class="card-body">
+          <div class="card-price">₹75,000 <span>/month</span></div>
+          <div class="card-title">Premium 5 BHK Bungalow</div>
+          <div class="card-location">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Jubilee Hills, Hyderabad
+          </div>
+          <div class="card-meta">
+            <div class="meta-item" data-beds="5"><svg viewBox="0 0 24 24"><path d="M7 14c-1.66 0-3-1.34-3-3 0-1.31.84-2.41 2-2.83V6c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2v2.17c1.16.42 2 1.52 2 2.83 0 1.66-1.34 3-3 3H7zm0 2h10v2H7v-2z"/></svg>5 Beds</div>
+            <div class="meta-item" data-baths="4"><svg viewBox="0 0 24 24"><path d="M5 13h14v2H5zm0 4h14v2H5zm10-6v-3a5 5 0 0 0-10 0v3H3v-3C3 3.6 7.03 0 12 0s9 3.6 9 8v3h-2z"/></svg>4 Baths</div>
+            <div class="meta-item" data-area="3500"><svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14z"/></svg>3500 sqft</div>
+            <div class="meta-item" data-people="7"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>7+ People</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /properties-grid -->
+
+    <div class="load-more">
+      <button class="btn-outline" id="load-more-btn" style="padding:12px 36px;font-size:0.95rem;">
+        Load More Properties
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES ============ -->
+  <div class="features-section" id="features">
+    <div class="section-header">
+      <span class="section-eyebrow">Why Housify</span>
+      <h2 class="section-title">Everything You Need to Rent Smart</h2>
+      <p class="section-subtitle">We've built every feature tenants need to find, verify, and move into a rental home with zero stress.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.5-2.33 6.79-5 7.93C9.33 17.79 7 14.5 7 11V7.18L12 5z"/></svg>
+        </div>
+        <div class="feature-title">Verified Listings</div>
+        <div class="feature-desc">Every property is physically visited and verified by our agents before going live.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        </div>
+        <div class="feature-title">Guests Filter</div>
+        <div class="feature-desc">Filter by number of occupants — from single professionals to large families with 7+ members.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+        </div>
+        <div class="feature-title">Flexible Duration</div>
+        <div class="feature-desc">Choose daily, weekly, monthly or long-term rentals. We match the property to your timeline.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+        </div>
+        <div class="feature-title">Secure Payments</div>
+        <div class="feature-desc">Pay rent, deposit, and fees through our secure gateway. Get receipts instantly, always.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="section-header">
+      <span class="section-eyebrow">Happy Tenants</span>
+      <h2 class="section-title">What Our Renters Say</h2>
+      <p class="section-subtitle">Thousands of happy tenants across India trust Housify to find their home.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="testimonial-text">"Found a beautiful 2 BHK in Koramangala within 3 days. The filters for number of people and duration saved me so much time. Highly recommended!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">AK</div>
+          <div>
+            <div class="author-name">Aditya Kumar</div>
+            <div class="author-role">Software Engineer, Bengaluru</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="testimonial-text">"We were a family of 5 looking for a 3 BHK. Housify's guests filter made it super easy. The digital agreement process was smooth and transparent."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">PS</div>
+          <div>
+            <div class="author-name">Priya Sharma</div>
+            <div class="author-role">Teacher, Dehradun</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span></div>
+        <p class="testimonial-text">"Needed a short-term rental for 3 months for a project. Housify had plenty of options and the agent was very responsive. Great experience overall."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">RV</div>
+          <div>
+            <div class="author-name">Rohan Verma</div>
+            <div class="author-role">Freelance Designer, Mumbai</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta-section" id="contact">
+    <div class="cta-box">
+      <span class="section-eyebrow" style="display:block;margin-bottom:0.75rem;">Get Started Today</span>
+      <h2>Ready to Find Your New Home?</h2>
+      <p>Join over 8,500 happy tenants who found their perfect rental home on Housify. List or search for free.</p>
+
+      <!-- Newsletter / Contact -->
+      <form class="newsletter-form" style="display:flex;gap:0.75rem;margin-bottom:1.5rem;flex-wrap:wrap;justify-content:center;">
+        <input type="email" placeholder="Enter your email address" required
+          style="flex:1;min-width:200px;padding:12px 18px;border:1.5px solid #e8e2d9;border-radius:40px;font-size:0.9rem;font-family:inherit;outline:none;" />
+        <button type="submit" class="btn-primary" style="padding:12px 24px;border-radius:40px;">Notify Me</button>
+      </form>
+
+      <div class="cta-buttons">
+        <button class="btn-gold">Browse All Listings</button>
+        <button class="btn-outline" style="padding:14px 32px;border-radius:40px;font-size:0.95rem;">List Your Property</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo-text">House<span>ify</span></span>
+          <p class="footer-desc">India's most trusted rental platform. Connecting tenants with verified landlords across 120+ cities. Your home, your way.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Facebook">f</a>
+            <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+            <a href="#" class="social-link" aria-label="Instagram">in</a>
+            <a href="#" class="social-link" aria-label="LinkedIn">Li</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="#">Apartments</a></li>
+            <li><a href="#">Villas & Bungalows</a></li>
+            <li><a href="#">Studio Flats</a></li>
+            <li><a href="#">PG & Hostels</a></li>
+            <li><a href="#">New Listings</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul class="footer-links">
+            <li><a href="#">Help Centre</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Housify. All rights reserved. Made with ♥ in India.</p>
+        <p>🏠 Finding homes, building lives.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ PROPERTY DETAIL MODAL ============ -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-prop-name">Property Name</h2>
+        <button class="modal-close" aria-label="Close">✕</button>
+      </div>
+
+      <div style="background:var(--bg);border-radius:12px;padding:20px;margin-bottom:1.5rem;">
+        <div style="font-size:1.6rem;font-weight:700;font-family:'Playfair Display',serif;color:var(--primary);margin-bottom:4px;" class="modal-prop-price"></div>
+        <div style="font-size:0.85rem;color:var(--text-light);" class="modal-prop-location"></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
+        <div style="background:white;border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;">
+          <div style="font-size:0.72rem;color:var(--text-light);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Bedrooms</div>
+          <div style="font-weight:700;color:var(--primary);font-size:1.1rem;" class="modal-prop-beds"></div>
+        </div>
+        <div style="background:white;border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;">
+          <div style="font-size:0.72rem;color:var(--text-light);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Bathrooms</div>
+          <div style="font-weight:700;color:var(--primary);font-size:1.1rem;" class="modal-prop-baths"></div>
+        </div>
+        <div style="background:white;border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;">
+          <div style="font-size:0.72rem;color:var(--text-light);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Area</div>
+          <div style="font-weight:700;color:var(--primary);font-size:1.1rem;" class="modal-prop-area"></div>
+        </div>
+        <div style="background:white;border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;">
+          <div style="font-size:0.72rem;color:var(--text-light);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Max Guests</div>
+          <div style="font-weight:700;color:var(--primary);font-size:1.1rem;" class="modal-prop-people"></div>
+        </div>
+      </div>
+
+      <div style="background:rgba(212,168,83,0.1);border:1px solid rgba(212,168,83,0.3);border-radius:10px;padding:14px;margin-bottom:1.5rem;display:flex;align-items:center;gap:10px;">
+        <span style="font-size:1.2rem;">⏱</span>
+        <div>
+          <div style="font-size:0.72rem;color:#a07830;text-transform:uppercase;letter-spacing:1px;font-weight:700;">Rental Duration</div>
+          <div style="font-weight:600;color:var(--text-dark);" class="modal-prop-duration"></div>
+        </div>
+      </div>
+
+      <form class="contact-form">
+        <div style="margin-bottom:0.75rem;">
+          <label style="display:block;font-size:0.78rem;font-weight:600;color:var(--text-mid);margin-bottom:5px;text-transform:uppercase;letter-spacing:0.5px;">Your Name</label>
+          <input type="text" placeholder="Full name" required style="width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;outline:none;" />
+        </div>
+        <div style="margin-bottom:0.75rem;">
+          <label style="display:block;font-size:0.78rem;font-weight:600;color:var(--text-mid);margin-bottom:5px;text-transform:uppercase;letter-spacing:0.5px;">Phone Number</label>
+          <input type="tel" placeholder="+91 98765 43210" required style="width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;outline:none;" />
+        </div>
+        <div style="margin-bottom:1.25rem;">
+          <label style="display:block;font-size:0.78rem;font-weight:600;color:var(--text-mid);margin-bottom:5px;text-transform:uppercase;letter-spacing:0.5px;">Move-In Date</label>
+          <input type="date" style="width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;outline:none;" />
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;padding:14px;border-radius:8px;font-size:0.95rem;">
+          Request a Visit 🏠
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
